@@ -9,7 +9,7 @@ import org.testng.Assert;
 
 public class Genral extends Global {	
 	
-	public void login() {
+	public void login() {		
 
 		System.setProperty("webdriver.chrome.driver", "//home//sbv6//Downloads//chromedriver");
 		driver = new ChromeDriver();
