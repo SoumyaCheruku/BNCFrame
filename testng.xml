@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BNC Application Test Automation Test Suite">
+
+<!--Change org name,phone,email in Quick reservationwithNewCompany-->
+<!--Change change challan number in FpAnd Challan-->
+<!--Change orgname in split-->
+
+	<test name="BNC Aplication Test Cases">
+		<classes>
+			<!-- <class name="com.bnc.testscripts.QuickReservationTest"></class> -->
+			<class name="com.bnc.testscripts.ReservationTest"></class>
+			<class name="com.bnc.testscripts.ProformaTest"></class>
+			<class name="com.bnc.testscripts.InvoiceTest"></class>			
+
+		</classes>
+	</test>
+</suite>
