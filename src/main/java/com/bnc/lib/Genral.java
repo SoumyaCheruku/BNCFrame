@@ -1,5 +1,6 @@
 package com.bnc.lib;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -9,16 +10,33 @@ import org.testng.Assert;
 
 public class Genral extends Global {	
 	
-	public void login() {		
+	public void login() throws InterruptedException {		
 
 		System.setProperty("webdriver.chrome.driver", "//home//sbv6//Downloads//chromedriver");
 		driver = new ChromeDriver();
+		
 		driver.get(url);
+		
+		driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div/div[1]/span/input")).sendKeys(username);
+		
+		driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div/div[2]/span/input")).sendKeys(password);
+																											
+		WebElement loginBtn = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div/div[3]/button"));
+		loginBtn.click();
+		
+		Thread.sleep(2000);
+		
+		Alert alert = driver.switchTo().alert();
+		alert.accept();// um pop up
+		
+		String BNCURL ="http://staging.app.centerpoint.io/bnc";
+		driver.get(BNCURL);
+		
 		driver.manage().window().maximize();
 	}
 
 	public void quikResrvationWithExistingCompany() throws InterruptedException {
-		driver.get("http://localhost:3000/bnc/reservations/quickreservation");// navigate to quick reservation																			
+		driver.get("http://staging.app.centerpoint.io/bnc/reservations/quickreservation");// navigate to quick reservation																			
 
 		driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[1]/div/div[2]/div/button[1]"))
 				.click();// click on new
@@ -83,7 +101,7 @@ public class Genral extends Global {
 	// change company name,customer name,phone number before executing the script
 	public void quickReservationWithnewCompany() throws InterruptedException {
 		
-		driver.get("http://localhost:3000/bnc/reservations/quickreservation");// navigate to quick res		
+		driver.get("http://staging.app.centerpoint.io/bnc/reservations/quickreservation");// navigate to quick res		
 
 		WebElement newButton = driver
 				.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[1]/div/div[2]/div/button[1]"));
@@ -182,7 +200,7 @@ public class Genral extends Global {
 	
 	public void editQuickReservation() throws InterruptedException{
 		
-		driver.get("http://localhost:3000/bnc/reservations/quickreservation");// navigate to quick res
+		driver.get("http://staging.app.centerpoint.io/bnc/reservations/quickreservation");// navigate to quick res
 		
 		Thread.sleep(1000);
 		WebElement editButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div/div/div/div/div[1]/div/div/div/div[2]/div[2]/div/table/tbody/tr[1]/td/div/button[1]"));
@@ -202,7 +220,7 @@ public class Genral extends Global {
 	
 	public void deleteQuickReservation() throws InterruptedException{
 		
-		driver.get("http://localhost:3000/bnc/reservations/quickreservation");// navigate to quick res
+		driver.get("http://staging.app.centerpoint.io/bnc/reservations/quickreservation");// navigate to quick res
 		
 		Thread.sleep(1000);
 		
@@ -222,7 +240,7 @@ public class Genral extends Global {
 	//change reservation id
 	public void filterInQuickRes() throws InterruptedException{
 		
-		driver.get("http://localhost:3000/bnc/reservations/quickreservation");// navigate to quick res
+		driver.get("http://staging.app.centerpoint.io/bnc/reservations/quickreservation");// navigate to quick res
 		
 		Thread.sleep(1000);
 		
@@ -250,7 +268,7 @@ public class Genral extends Global {
 	//change organization name
 	public void searchInQuickRes() throws InterruptedException{
 		
-		driver.get("http://localhost:3000/bnc/reservations/quickreservation");// navigate to quick res
+		driver.get("http://staging.app.centerpoint.io/bnc/reservations/quickreservation");// navigate to quick res
 		
 		Thread.sleep(1000);
 		
@@ -277,7 +295,7 @@ public class Genral extends Global {
 	
 	public void addReservation() throws InterruptedException{
 		
-		String resListUrl ="http://localhost:3000/bnc/reservations/reservation";
+		String resListUrl ="http://staging.app.centerpoint.io/bnc/reservations/reservation";
 		driver.get(resListUrl);
 		
 		Thread.sleep(1000);
@@ -333,7 +351,7 @@ public class Genral extends Global {
 		
 		Thread.sleep(1000);
 		
-		WebElement selectEndDate= driver.findElement(By.xpath("/html/body/div[7]/div/div/div/div/div[2]/div[2]/table/tbody/tr[5]/td[4]/div"));
+		WebElement selectEndDate= driver.findElement(By.xpath("/html/body/div[7]/div/div/div/div/div[2]/div[2]/table/tbody/tr[3]/td[5]"));
 		selectEndDate.click();
 		
 		Thread.sleep(1000);
@@ -390,13 +408,14 @@ public class Genral extends Global {
 		System.out.println("Reservation added successfully");
 		
 		driver.navigate().refresh();
+		Thread.sleep(2000);
 		
 	}
 	
 	//change res id
 	public void reservationIdFillter() throws InterruptedException{
 		
-		String resListUrl ="http://localhost:3000/bnc/reservations/reservation";
+		String resListUrl ="http://staging.app.centerpoint.io/bnc/reservations/reservation";
 		driver.get(resListUrl);
 		
 		Thread.sleep(1000);
@@ -426,7 +445,7 @@ public class Genral extends Global {
 	//change organization name
 		public void reservationSearch() throws InterruptedException{
 			
-			String resListUrl ="http://localhost:3000/bnc/reservations/reservation";
+			String resListUrl ="http://staging.app.centerpoint.io/bnc/reservations/reservation";
 			driver.get(resListUrl);
 			
 			Thread.sleep(1000);
@@ -455,7 +474,7 @@ public class Genral extends Global {
 		
 		public void reservationEdit() throws InterruptedException{
 			
-			String resListUrl ="http://localhost:3000/bnc/reservations/reservation";
+			String resListUrl ="http://staging.app.centerpoint.io/bnc/reservations/reservation";
 			driver.get(resListUrl);
 			
 			Thread.sleep(1000);
@@ -486,14 +505,14 @@ public class Genral extends Global {
 			Thread.sleep(1000);
 			
 			Actions actions = new Actions(driver);
-			WebElement fpTab=driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[1]/div[2]/div/div/div/div[4]"));
+			WebElement fpTab=driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[1]/div[2]/div/div/div/div[5]"));
 			actions.moveToElement(fpTab);
 			actions.click();
 			actions.build().perform();
 
 			Thread.sleep(1000);
 			
-			WebElement genrateAllFpbtn = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[3]/div[1]/div/div/div[1]/div[1]/div/div[2]/button"));
+			WebElement genrateAllFpbtn = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[4]/div[1]/div/div/div[1]/div[1]/div/div[2]/button"));
 			
 			if(genrateAllFpbtn.isEnabled())	
 				genrateAllFpbtn.click();			
@@ -507,7 +526,7 @@ public class Genral extends Global {
 		
 		public void deleteReservation() throws InterruptedException{
 			
-			String resListUrl ="http://localhost:3000/bnc/reservations/reservation";
+			String resListUrl ="http://staging.app.centerpoint.io/bnc/reservations/reservation";
 			driver.get(resListUrl);
 			
 			Thread.sleep(1000);
@@ -528,7 +547,7 @@ public class Genral extends Global {
 	//Change challan_Number
 	public void fpAndChallans() throws InterruptedException{
 		
-		String resListUrl ="http://localhost:3000/bnc/reservations/reservation";
+		String resListUrl ="http://staging.app.centerpoint.io/bnc/reservations/reservation";
 		driver.get(resListUrl);
 		
 		Thread.sleep(3000);
@@ -551,26 +570,26 @@ public class Genral extends Global {
 			Thread.sleep(3000);
 			
 			Actions actions = new Actions(driver);
-			WebElement fpTab=driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[1]/div[2]/div/div/div/div[3]"));
+			WebElement fpTab=driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[1]/div[2]/div/div/div/div[4]"));
 			actions.moveToElement(fpTab);
 			actions.click();
 			actions.build().perform();
 
 			Thread.sleep(1000);
 			
-			WebElement genrateAllFpbtn = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[2]/div[1]/div/div/div[1]/div[1]/div/div[2]/button"));
+			WebElement genrateAllFpbtn = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[3]/div[1]/div/div/div[1]/div[1]/div/div[2]/button"));
 			
 			if(genrateAllFpbtn.isEnabled())	
 				genrateAllFpbtn.click();							
 																														
 			Thread.sleep(1000);
 			
-			WebElement challanTab = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[1]/div[2]/div/div/div/div[4]"));
+			WebElement challanTab = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[1]/div[2]/div/div/div/div[5]"));
 			challanTab.click();
 			
 			Thread.sleep(1000);
 			
-			WebElement areaClickToAddChallan = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[3]/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div/div[1]"));
+			WebElement areaClickToAddChallan = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[4]/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div/div[1]"));
 			areaClickToAddChallan.click();
 			
 			WebElement challanButton = driver.findElement(By.xpath("//*[@id='challanNumber']/div[2]/div/span/button"));
@@ -582,7 +601,7 @@ public class Genral extends Global {
 			actions.moveToElement(passChallanNumber);
 			Thread.sleep(1000);
 			actions.click();			
-			actions.sendKeys("iyaan586");
+			actions.sendKeys("Aarushi123");
 			actions.build().perform();
 			
 			Thread.sleep(1000);
@@ -592,22 +611,22 @@ public class Genral extends Global {
 			
 			Thread.sleep(1000);
 			
-			WebElement challanCardClick = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[3]/div[1]/div/div/div/div[2]/div[1]/div[2]/div[2]/article/span/div"));
+			WebElement challanCardClick = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[4]/div[1]/div/div/div/div[2]/div[1]/div[2]/div[2]/article/span/div"));
 			challanCardClick.click();
 			
 			Thread.sleep(1000);
 			
-			WebElement plusButtonToAddChallanItem = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[3]/div[1]/div/div/div/div[2]/div[2]/div/div/div[2]/div[1]/div/button"));
+			WebElement plusButtonToAddChallanItem = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[4]/div[1]/div/div/div/div[2]/div[2]/div/div/div[2]/div[1]/div/button"));
 			plusButtonToAddChallanItem.click();
 			
 			Thread.sleep(1000);			
 			
-			WebElement addChallanFirstArea = driver.findElement(By.xpath("(//*[@id='addChallan'])[1]"));
+			WebElement addChallanFirstArea = driver.findElement(By.xpath("(//*[@id='addAreas'])[1]"));
 			addChallanFirstArea.click();
 			
 			Thread.sleep(1000);
 			
-			WebElement addChallanSecondArea = driver.findElement(By.xpath("(//*[@id='addChallan'])[2]"));
+			WebElement addChallanSecondArea = driver.findElement(By.xpath("(//*[@id='addAreas'])[2]"));
 			addChallanSecondArea.click();
 			
 			Thread.sleep(1000);
@@ -618,22 +637,22 @@ public class Genral extends Global {
 			Thread.sleep(1000);
 			
 			
-			WebElement challanMenutab= driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[3]/div[1]/div/div/div/div[2]/div[2]/div/div/div[1]/div/div/div/div/div[3]"));
+			WebElement challanMenutab= driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[4]/div[1]/div/div/div/div[2]/div[2]/div/div/div[1]/div/div/div/div/div[3]/span"));
 			challanMenutab.click();
 			
 			Thread.sleep(1000);
 			
-			WebElement menuPlusbutton = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[3]/div[1]/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/button"));
+			WebElement menuPlusbutton = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[4]/div[1]/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/button"));
 			menuPlusbutton.click();
 			
 			Thread.sleep(1000);
 			
-			WebElement addchallanfirstMenuItem = driver.findElement(By.xpath("(//*[@id='addMenu'])[1]"));
+			WebElement addchallanfirstMenuItem = driver.findElement(By.xpath("(//*[@id='addChallans'])[1]"));
 			addchallanfirstMenuItem.click();
 			
 			Thread.sleep(1000);
 			
-			WebElement addchallanSecondMenuItem = driver.findElement(By.xpath("(//*[@id='addMenu'])[2]"));
+			WebElement addchallanSecondMenuItem = driver.findElement(By.xpath("(//*[@id='addChallans'])[2]"));
 			addchallanSecondMenuItem.click();
 			
 			Thread.sleep(1000);
@@ -643,22 +662,22 @@ public class Genral extends Global {
 			
 			Thread.sleep(1000);
 			
-			WebElement challanServicetab= driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[3]/div[1]/div/div/div/div[2]/div[2]/div/div/div[1]/div/div/div/div/div[4]"));
+			WebElement challanServicetab= driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[4]/div[1]/div/div/div/div[2]/div[2]/div/div/div[1]/div/div/div/div/div[4]/span"));
 			challanServicetab.click();
 			
 			Thread.sleep(1000);
 			
-			WebElement servicePlusbutton = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[3]/div[1]/div/div/div/div[2]/div[2]/div/div/div[2]/div[3]/div/button"));
+			WebElement servicePlusbutton = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[4]/div[1]/div/div/div/div[2]/div[2]/div/div/div[2]/div[3]/div/button"));
 			servicePlusbutton.click();
 			
 			Thread.sleep(1000);
 			
-			WebElement addchallanfirstService = driver.findElement(By.xpath("(//*[@id='addService'])[1]"));
+			WebElement addchallanfirstService = driver.findElement(By.xpath("(//*[@id='addServices'])[1]"));
 			addchallanfirstService.click();
 			
 			Thread.sleep(1000);
 			
-			WebElement addchallanSecondService = driver.findElement(By.xpath("(//*[@id='addService'])[2]"));
+			WebElement addchallanSecondService = driver.findElement(By.xpath("(//*[@id='addServices'])[2]"));
 			addchallanSecondService.click();
 			
 			Thread.sleep(1000);
@@ -690,7 +709,7 @@ public class Genral extends Global {
 	
 	public void proformaGeneration() throws InterruptedException{
 		
-		String resListUrl ="http://localhost:3000/bnc/reservations/reservation";
+		String resListUrl ="http://staging.app.centerpoint.io/bnc/reservations/reservation";
 		driver.get(resListUrl);		
 		
 		Thread.sleep(3000);
@@ -717,19 +736,19 @@ public class Genral extends Global {
 			
 			Thread.sleep(1000);			
 			
-			WebElement fpTab=driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[1]/div[2]/div/div/div/div[3]"));
+			WebElement fpTab=driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[1]/div[2]/div/div/div/div[4]/span"));
 			actions.moveToElement(fpTab);
 			actions.click();
 			actions.build().perform();
 
 			Thread.sleep(2000);			
 			
-			WebElement proformatab = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[1]/div[2]/div/div/div/div[5]"));
+			WebElement proformatab = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[1]/div[2]/div/div/div/div[6]/span"));
 			proformatab.click();
 			
 			Thread.sleep(1000);
 			
-			WebElement proformaGenerateBtn = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[4]/div/div/div/div/div[1]/div/button"));
+			WebElement proformaGenerateBtn = driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[2]/div[5]/div/div/div/div/div[1]/div/button"));
 			proformaGenerateBtn.click();
 			
 			System.out.println("Proforma Generated Successfully");
@@ -738,7 +757,7 @@ public class Genral extends Global {
 	}
 	public void discount() throws InterruptedException{
 		
-		String proformaListURL = "http://localhost:3000/bnc/invoices/preview";
+		String proformaListURL = "http://staging.app.centerpoint.io/bnc/invoices/preview";
 		
 		driver.get(proformaListURL);
 		
@@ -750,12 +769,12 @@ public class Genral extends Global {
 		
 		Thread.sleep(1000);
 		
-		WebElement discountButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/button[1]"));
+		WebElement discountButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/button[1]"));
 		discountButton.click();
 		
 		Thread.sleep(1000);
 		
-		WebElement disMode =driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[5]/div/div[1]/div[1]/div[2]/div[1]/div/div[2]/div/span/div/div/div/div"));
+		WebElement disMode =driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[6]/div/div[1]/div[1]/div[2]/div[1]/div/div[2]/div/span/div/div/div/div"));
 		Actions actions = new Actions(driver);
 		actions.moveToElement(disMode);
 		actions.click();
@@ -770,7 +789,7 @@ public class Genral extends Global {
 		
 		Thread.sleep(1000);
 		
-		WebElement applyToAllButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[5]/div/div[1]/div[2]/button[2]"));
+		WebElement applyToAllButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[6]/div/div[1]/div[2]/button[2]"));
 		applyToAllButton.click();
 		
 		Thread.sleep(1000);
@@ -787,7 +806,7 @@ public class Genral extends Global {
 	public void generateInvoice() throws InterruptedException{
 		
 
-		String proformaListURL = "http://localhost:3000/bnc/invoices/preview";
+		String proformaListURL = "http://staging.app.centerpoint.io/bnc/invoices/preview";
 		
 		driver.get(proformaListURL);
 		
@@ -811,7 +830,7 @@ public class Genral extends Global {
 	//change org name given in quick res
 	public void invoiceSplit() throws InterruptedException{
 		
-		String proformaListURL = "http://localhost:3000/bnc/invoices/preview";		
+		String proformaListURL = "http://staging.app.centerpoint.io/bnc/invoices/preview";		
 		driver.get(proformaListURL);
 		
 		Thread.sleep(1000);
@@ -863,7 +882,7 @@ public class Genral extends Global {
 	
 	public void payments() throws InterruptedException{
 		
-		String proformaListURL = "http://localhost:3000/bnc/invoices/preview";		
+		String proformaListURL = "http://staging.app.centerpoint.io/bnc/invoices/preview";		
 		driver.get(proformaListURL);
 		
 		Thread.sleep(1000);
@@ -989,7 +1008,7 @@ public class Genral extends Global {
 	
 	public void voidInvoice() throws InterruptedException{
 		
-		String proformaListURL = "http://localhost:3000/bnc/invoices/preview";		
+		String proformaListURL = "http://staging.app.centerpoint.io/bnc/invoices/preview";		
 		driver.get(proformaListURL);
 		
 		Thread.sleep(1000);

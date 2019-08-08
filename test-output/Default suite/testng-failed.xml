@@ -3,11 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.bnc.testscripts.InvoiceTest">
+      <class name="com.bnc.lib.MastersGeneral">
         <methods>
-          <include name="invoice"/>
+          <include name="menuPackage"/>
+          <include name="login"/>
+          <include name="customer"/>
+          <include name="quit"/>
         </methods>
-      </class> <!-- com.bnc.testscripts.InvoiceTest -->
+      </class> <!-- com.bnc.lib.MastersGeneral -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -5,8 +5,9 @@ import org.openqa.selenium.WebDriver;
 public class Global {
 	
 	public WebDriver driver;	
-	public String url="http://localhost:3000/bnc/";
-	
+	public String url="http://staging.app.centerpoint.io";
+	public String username="satish@gmail.com";
+	public String password = "satish";
 	
 
 }
