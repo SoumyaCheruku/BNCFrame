@@ -479,13 +479,16 @@ public class Genral extends Global {
 			
 			Thread.sleep(1000);
 			
-			WebElement editButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div/div[1]/div/div/div/div[2]/div[2]/div/table/tbody/tr[1]/td/div/button[1]/a"));
+			WebElement editButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div/div[1]/div/div/div/div[2]/div[2]/div/table/tbody/tr/td/div/button[1]"));
 			editButton.click();
 			
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			
 			WebElement areatab =driver.findElement(By.xpath("//*[@id='ReservationListForm']/div/div[1]/div[2]/div/div/div/div[3]"));
-			areatab.click();			
+			Actions action = new Actions(driver);
+			action.moveToElement(areatab);
+			action.click();
+			action.build().perform();
 			
 			Thread.sleep(1000);
 			
@@ -601,7 +604,7 @@ public class Genral extends Global {
 			actions.moveToElement(passChallanNumber);
 			Thread.sleep(1000);
 			actions.click();			
-			actions.sendKeys("Aarushi123");
+			actions.sendKeys("prnay");
 			actions.build().perform();
 			
 			Thread.sleep(1000);
@@ -818,7 +821,7 @@ public class Genral extends Global {
 		
 		Thread.sleep(1000);
 		
-		WebElement invoiceGenBtn = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/button[2]"));
+		WebElement invoiceGenBtn = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/button[2]"));
 		invoiceGenBtn.click();
 		
 		Thread.sleep(1000);
@@ -865,12 +868,12 @@ public class Genral extends Global {
 		
 		Thread.sleep(1000);
 		
-		WebElement splitButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[3]/div/div[1]/div[2]/div[1]/button"));
+		WebElement splitButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[4]/div/div[1]/div[2]/div[1]/button"));
 		splitButton.click();
 		
 		Thread.sleep(1000);
 		
-		WebElement areaSplitButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[6]/div/div/div/div[4]/div/div[2]/div[1]/span[3]/button"));
+		WebElement areaSplitButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[7]/div/div/div/div[4]/div/div[2]/div[1]/span[3]/button"));
 		areaSplitButton.click();
 		
 		Thread.sleep(1000);
@@ -897,7 +900,7 @@ public class Genral extends Global {
 		
 		Thread.sleep(1000);
 		
-		WebElement paymentsButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[3]/div/div[1]/div[2]/button[2]"));
+		WebElement paymentsButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[4]/div/div[1]/div[2]/button[2]"));
 		paymentsButton.click();
 		
 		Thread.sleep(1000);
@@ -933,10 +936,10 @@ public class Genral extends Global {
 		Thread.sleep(1000);
 		
 		//Payment through cheque mode
-		WebElement selectChequeMode = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[4]/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[3]"));
+		WebElement selectChequeMode = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[5]/div/div[2]/div/div[2]/div/div[1]/div/div/div/div/div[3]"));
 		selectChequeMode.click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		WebElement chequeNumber = driver.findElement(By.id("chequeNo"));
 		chequeNumber.sendKeys("559663");;
@@ -963,7 +966,7 @@ public class Genral extends Global {
 		
 		Thread.sleep(1000);
 		
-		WebElement selectCashMode = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[4]/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[4]"));
+		WebElement selectCashMode = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[5]/div/div[2]/div/div[2]/div/div[1]/div/div/div/div/div[4]"));
 		selectCashMode.click();
 		
 		Thread.sleep(1000);
@@ -977,12 +980,12 @@ public class Genral extends Global {
 		
 		Thread.sleep(1000);
 		
-		WebElement selectBTCMode = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[4]/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[6]"));
+		WebElement selectBTCMode = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[5]/div/div[2]/div/div[2]/div/div[1]/div/div/div/div/div[6]"));
 		selectBTCMode.click();
 		
 		Thread.sleep(1000);			
 		
-		String resOrgName = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[4]/div/div[1]/div[1]/div/div[5]/div[1]/div[3]")).getText();
+		String resOrgName = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[5]/div/div[1]/div[1]/div/div[4]/div[1]/div[3]")).getText();
 		System.out.println(resOrgName);
 		WebElement selectorgname = driver.findElement(By.xpath("//*[@id='company']/div[1]/div[2]/div/span/div/div/div/div[1]"));
 		actions.moveToElement(selectorgname);

@@ -9,9 +9,9 @@
 	<test name="BNC Aplication Test Cases">
 		<classes>
 			<!-- <class name="com.bnc.testscripts.QuickReservationTest"></class> -->
-			<class name="com.bnc.testscripts.ReservationTest"></class>
+		    <class name="com.bnc.testscripts.ReservationTest"></class> 
 			<class name="com.bnc.testscripts.ProformaTest"></class>
-			<class name="com.bnc.testscripts.InvoiceTest"></class>			
+			<class name="com.bnc.testscripts.InvoiceTest"></class>	
 
 		</classes>
 	</test>

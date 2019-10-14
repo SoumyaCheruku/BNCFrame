@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 public class MastersGeneral extends Global {
 	
 	@BeforeMethod
+	//@Test
 	public void login() throws InterruptedException {		
 
 		System.setProperty("webdriver.chrome.driver", "//home//sbv6//Downloads//chromedriver");
@@ -38,6 +39,7 @@ public class MastersGeneral extends Global {
 	}
 	
 	//verfy add,edit,delete and search
+	//@Test(dependsOnMethods="login")//It means if login fail it ignores this test
 	@Test
 	public void Area() throws InterruptedException{
 		
@@ -50,7 +52,7 @@ public class MastersGeneral extends Global {
 		WebElement newButton = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[1]/div/div[2]/div/button[1]"));
 		newButton.click();
 		
-		String areaName ="Arial zone";		
+		String areaName ="Kids zone";		
 		driver.findElement(By.id("areaName")).sendKeys(areaName);		
 		
 		driver.findElement(By.id("price")).sendKeys("2000");
@@ -253,13 +255,13 @@ public class MastersGeneral extends Global {
 
 		Thread.sleep(1000);
 		
-		/*WebElement deleteBtn =driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/div/div[1]/div/div/div/div/div[2]/table/tbody/tr/td[5]/div/button[2]"));
+		WebElement deleteBtn =driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/div/div[1]/div/div/div/div/div[2]/table/tbody/tr/td[5]/div/button[2]"));
 		deleteBtn.click();
 
 		Thread.sleep(1000);
 		
 		WebElement deleteconfirm =driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[2]/div/div/div[2]/button[2]"));
-		deleteconfirm.click();	*/	
+		deleteconfirm.click();		
 		
 	}
 	
@@ -596,7 +598,7 @@ public class MastersGeneral extends Global {
 		
 		Thread.sleep(1000);
 		
-		/*WebElement searchIcon =driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/div/div[1]/div/div/div/div/div[1]/table/thead/tr/th[3]/span/i"));
+		WebElement searchIcon =driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/div/div[1]/div/div/div/div/div[1]/table/thead/tr/th[3]/span/i"));
 		searchIcon.click();		
 		
 		Thread.sleep(1000);
@@ -632,7 +634,7 @@ public class MastersGeneral extends Global {
 		
 		WebElement deleteconfirm =driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/div/div/div[2]/button[2]"));
 		deleteconfirm.click();	
-*/	}
+	}
 	
 	@Test
 	public void itemCategeoryItemGroup() throws InterruptedException{
@@ -788,7 +790,7 @@ public class MastersGeneral extends Global {
 		WebElement searchBtn  =driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/div/div[2]/div/div/div/div/button[1]"));
 		searchBtn.click();
 		
-		/*WebElement editBtn =driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/div/div[1]/div/div/div/div/div[2]/table/tbody/tr/td[4]/div/button[1]"));
+		WebElement editBtn =driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/div/div[1]/div/div/div/div/div[2]/table/tbody/tr/td[4]/div/button[1]"));
 		editBtn.click();
 		
 		Thread.sleep(1000);
@@ -815,7 +817,7 @@ public class MastersGeneral extends Global {
 		WebElement deleteconfirm =driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/div/div/div[2]/button[2]"));
 		deleteconfirm.click();
 		
-*/	}
+	}
 	@Test
 	public void menu() throws InterruptedException{
 		
@@ -922,12 +924,12 @@ public class MastersGeneral extends Global {
 		
 		Thread.sleep(1000);
 		
-		/*WebElement deleteConfirm =driver.findElement(By.xpath("/html/body/div[7]/div/div/div/div[2]/div/div/div[2]/button[2]"));
+		WebElement deleteConfirm =driver.findElement(By.xpath("/html/body/div[7]/div/div/div/div[2]/div/div/div[2]/button[2]"));
 		deleteConfirm.click();
 		
 		Thread.sleep(1000);		
 		
-		System.out.println("Menu master deleted successfully");*/
+		System.out.println("Menu master deleted successfully");
 	
 	}
 	@Test
@@ -1476,7 +1478,7 @@ public class MastersGeneral extends Global {
 		
 		Thread.sleep(1000);
 		
-		/*WebElement deleteBtn = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/div/div[1]/div/div/div/div[2]/div[2]/div/table/tbody/tr/td/div/button[2]"));
+		WebElement deleteBtn = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/div/div[1]/div/div/div/div[2]/div[2]/div/table/tbody/tr/td/div/button[2]"));
 		deleteBtn.click();
 		
 		Thread.sleep(1000);
@@ -1486,7 +1488,7 @@ public class MastersGeneral extends Global {
 		
 		Thread.sleep(1000);		
 		
-		System.out.println("Service master deleted successfully");	*/
+		System.out.println("Service master deleted successfully");	
 		
 	}
 	@Test
@@ -1703,7 +1705,7 @@ public class MastersGeneral extends Global {
 		WebElement updateBtn =driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[1]/div/div[2]/div/button[3]"));
 		updateBtn.click();
 
-		/*Thread.sleep(1000);
+		Thread.sleep(1000);
 		
 		WebElement deleteBtn =driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/div/div[1]/div/div/div/div/div[2]/table/tbody/tr[1]/td[5]/div/button[2]"));
 		deleteBtn.click();
@@ -1711,7 +1713,7 @@ public class MastersGeneral extends Global {
 		Thread.sleep(1000);
 		
 		WebElement deleteconfirm =driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/div/div/div[2]/button[2]"));
-		deleteconfirm.click();*/	
+		deleteconfirm.click();	
 	}
 	@Test
 	public void vendor() throws InterruptedException{
@@ -1798,7 +1800,7 @@ public class MastersGeneral extends Global {
 		
 		Thread.sleep(1000);
 		
-		/*WebElement editbtn = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/div/div[1]/div/div/div/div/div[2]/table/tbody/tr/td[7]/div/button"));
+		WebElement editbtn = driver.findElement(By.xpath("//*[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[1]/div/div[1]/div/div[1]/div/div/div/div/div[2]/table/tbody/tr/td[7]/div/button"));
 		editbtn.click();
 		
 		Thread.sleep(1000);
@@ -1832,7 +1834,7 @@ public class MastersGeneral extends Global {
 		Thread.sleep(1000);		
 		
 		System.out.println("service master deleted successfully");
-*/		
+		
 	}
 	@AfterMethod
 	public void quit(){
