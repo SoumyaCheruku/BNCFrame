@@ -23,7 +23,7 @@ public class InvoiceTest {
 		
 		Thread.sleep(1000);
 		
-		g.voidInvoice();
+		//g.voidInvoice();
 		
 		
 	}

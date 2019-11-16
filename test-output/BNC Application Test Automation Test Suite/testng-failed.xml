@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [BNC Application Test Automation Test Suite]">
   <test name="BNC Aplication Test Cases(failed)">
     <classes>
-      <class name="com.bnc.testscripts.ReservationTest">
+      <class name="com.bnc.testscripts.ProformaTest">
         <methods>
-          <include name="resrvation"/>
+          <include name="proforma"/>
         </methods>
-      </class> <!-- com.bnc.testscripts.ReservationTest -->
+      </class> <!-- com.bnc.testscripts.ProformaTest -->
       <class name="com.bnc.testscripts.InvoiceTest">
         <methods>
           <include name="invoice"/>

@@ -40,7 +40,7 @@ public class MastersGeneral extends Global {
 	
 	//verfy add,edit,delete and search
 	//@Test(dependsOnMethods="login")//It means if login fail it ignores this test
-	@Test
+	@Test(priority=7)
 	public void Area() throws InterruptedException{
 		
 		String areamasterUrl="http://staging.app.centerpoint.io/bnc/masters/areas";
@@ -204,7 +204,7 @@ public class MastersGeneral extends Global {
 		System.out.println("Area master deleted successfully");
 		
 	}
-	@Test
+	@Test(priority=14)
 	public void bank() throws InterruptedException{
 		
 		String bankURL ="http://staging.app.centerpoint.io/bnc/masters/payment/banks";
@@ -329,7 +329,7 @@ public class MastersGeneral extends Global {
 		Thread.sleep(1000);		
 		
 	}
-	@Test
+	@Test(priority=18)
 	public void customer() throws InterruptedException{
 		
 		String customerURL ="http://staging.app.centerpoint.io/bnc/masters/customers";
@@ -431,7 +431,7 @@ public class MastersGeneral extends Global {
 		
 		Thread.sleep(1000);		
 	}
-	@Test
+	@Test(priority=12)
 	public void functionSubFunction() throws InterruptedException{
 		
 		String functionSubFunctionURL ="http://staging.app.centerpoint.io/bnc/masters/functions";
@@ -513,7 +513,7 @@ public class MastersGeneral extends Global {
 
 	}
 	
-	@Test
+	@Test(priority=11)
 	public void industryType() throws InterruptedException{
 		
 		String industryTypeURL ="http://staging.app.centerpoint.io/bnc/masters/industrytypes";
@@ -575,7 +575,7 @@ public class MastersGeneral extends Global {
 		
 	}
 	
-	@Test
+	@Test(priority=16)
 	public void invoiceVoidReaon() throws InterruptedException{
 		
 		String invoiceVoidReaonURL ="http://staging.app.centerpoint.io/bnc/masters/invoice/void/reasons";
@@ -636,7 +636,7 @@ public class MastersGeneral extends Global {
 		deleteconfirm.click();	
 	}
 	
-	@Test
+	@Test(priority=4)
 	public void itemCategeoryItemGroup() throws InterruptedException{
 		
 		String itemCategeoryItemGroupURL ="http://staging.app.centerpoint.io/bnc/masters/itemCategory";
@@ -722,7 +722,7 @@ public class MastersGeneral extends Global {
 		deleteconfirm.click();	
 		
 	}
-	@Test
+	@Test(priority=5)
 	public void itemGroupItemSubGroup() throws InterruptedException{
 		
 		String itemGroupItemSubGroup ="http://staging.app.centerpoint.io/bnc/masters/itemGroup";
@@ -818,7 +818,7 @@ public class MastersGeneral extends Global {
 		deleteconfirm.click();
 		
 	}
-	@Test
+	@Test(priority=8)
 	public void menu() throws InterruptedException{
 		
 		String menuUrl="http://staging.app.centerpoint.io/bnc/masters/menuitems";
@@ -932,7 +932,7 @@ public class MastersGeneral extends Global {
 		System.out.println("Menu master deleted successfully");
 	
 	}
-	@Test
+	@Test(priority=9)
 	public void menuPackage() throws InterruptedException{
 		
 		String menuPackageUrl="http://staging.app.centerpoint.io/bnc/masters/menu/packages";
@@ -1093,7 +1093,7 @@ public class MastersGeneral extends Global {
 		System.out.println("Menu Package master deleted successfully");
 		
 	}
-	@Test
+	@Test(priority=17)
 	public void organization() throws InterruptedException{
 		
 		String OrgURL ="http://staging.app.centerpoint.io/bnc/masters/organization";
@@ -1185,7 +1185,7 @@ public class MastersGeneral extends Global {
 		
 		Thread.sleep(1000);		
 	}
-	@Test
+	@Test(priority=15)
 	public void paymentGateWay() throws InterruptedException{
 		
 		String paymentGateWayURL ="http://staging.app.centerpoint.io/bnc/masters/paymentGateway";
@@ -1246,7 +1246,7 @@ public class MastersGeneral extends Global {
 		deleteconfirm.click();			
 	}
 	
-	@Test
+	@Test(priority=13)
 	public void salesPerson() throws InterruptedException{
 		
 		String salesPersonURL ="http://staging.app.centerpoint.io/bnc/masters/salesPerson";
@@ -1326,7 +1326,7 @@ public class MastersGeneral extends Global {
 		Thread.sleep(1000);	
 	}
 	
-	@Test
+	@Test(priority=6)
 	public void seatingType() throws InterruptedException{
 		
 		String seatingTypeURL ="http://staging.app.centerpoint.io/bnc/masters/seating";
@@ -1386,7 +1386,7 @@ public class MastersGeneral extends Global {
 		WebElement deleteconfirm =driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/div/div/div[2]/button[2]"));
 		deleteconfirm.click();	
 	}
-	@Test
+	@Test(priority=10)
 	public void service() throws InterruptedException{
 		
 		String serviceUrl="http://staging.app.centerpoint.io/bnc/masters/services";
@@ -1491,7 +1491,7 @@ public class MastersGeneral extends Global {
 		System.out.println("Service master deleted successfully");	
 		
 	}
-	@Test
+	@Test(priority=1)
 	public void taxCategeory() throws InterruptedException{
 		
 		String taxCategeoryURL ="http://staging.app.centerpoint.io/bnc/masters/taxCategory";
@@ -1552,7 +1552,7 @@ public class MastersGeneral extends Global {
 		deleteconfirm.click();	
 
 	}
-	@Test
+	@Test(priority=2)
 	public void taxStructure() throws InterruptedException{
 		
 		String taxStructureURL ="http://staging.app.centerpoint.io/bnc/masters/taxStructure";
@@ -1628,7 +1628,7 @@ public class MastersGeneral extends Global {
 		deleteconfirm.click();	
 
 	}
-	@Test
+	@Test(priority=3)
 	public void taxGroup() throws InterruptedException{
 		
 		String taxGroupURL ="http://staging.app.centerpoint.io/bnc/masters/taxGroup";
@@ -1715,7 +1715,7 @@ public class MastersGeneral extends Global {
 		WebElement deleteconfirm =driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/div/div/div[2]/button[2]"));
 		deleteconfirm.click();	
 	}
-	@Test
+	@Test(priority=19)
 	public void vendor() throws InterruptedException{
 		
 

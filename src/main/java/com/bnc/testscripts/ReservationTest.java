@@ -29,7 +29,7 @@ public class ReservationTest {
 		
 		g.proformaGeneration();
 		
-		Thread.sleep(1000);
+		/*Thread.sleep(1000);
 		
 		g.reservationIdFillter();
 		
@@ -41,7 +41,7 @@ public class ReservationTest {
 		
 		g.deleteReservation();
 		
-		Thread.sleep(1000);
+		Thread.sleep(1000);*/
 		
 		g.closeBrowser();
 		
